@@ -23,3 +23,5 @@ export async function getBusinessInfoDao(env: any) {
 		throw new Error('DB_ERROR');
 	}
 }
+
+export default { getBusinessInfoDao };
