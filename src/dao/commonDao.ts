@@ -1,4 +1,4 @@
-export async function getBusinessInfoDao(env: any) {
+export async function getBusinessInfo(env: any) {
 	try {
 		const result = await env.DB.prepare(
 			`SELECT 
@@ -24,4 +24,4 @@ export async function getBusinessInfoDao(env: any) {
 	}
 }
 
-export default { getBusinessInfoDao };
+export default { getBusinessInfo };
