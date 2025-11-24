@@ -3,7 +3,7 @@ import { getStaffPictures } from './controller/aboutUsController';
 import { getIntroduction, getSnsImg } from './controller/mainController';
 import { getPictures } from './controller/worksController';
 
-const allowedOrigins = ['https://hwayeondang.com', 'https://43ceb531.hwd-44u.pages.dev'];
+const allowedOrigins = ['https://hwayeondang.com', 'https://c78c7283.hwd-44u.pages.dev'];
 
 function corsHeaders(origin: string) {
 	return {
