@@ -24,7 +24,7 @@ const getWorksImg = async (env: any, page: number, category: string, subMenu: nu
                             category,
                             name,
                             link,
-                            type,
+                            type_id,
                             created_at
                         FROM Works
                         WHERE category = ?

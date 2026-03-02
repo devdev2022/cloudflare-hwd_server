@@ -5,7 +5,7 @@ const getPictures = async (env: any, page: number, category: string, subMenu: nu
 		const result = await worksDao.getWorksImg(env, page, category, subMenu, limit);
 		return result;
 	} catch (error: any) {
-		throw new Error('GET_PICTURES_FAILED');
+		throw error;
 	}
 };
 
