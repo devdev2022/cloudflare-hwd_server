@@ -1,7 +1,7 @@
 const getWorksImg = async (env: any, page: number, category: string, subMenu: number, limit: number) => {
 	try {
 		const offset = (page - 1) * limit;
-		const subMenuCondition = subMenu === 1 ? '' : 'AND sub_menu = ?';
+		const subMenuCondition = subMenu === 1 ? '' : 'AND type_id = ?';
 
 		const countQuery = `SELECT COUNT(*) AS totalCount
                             FROM Works
