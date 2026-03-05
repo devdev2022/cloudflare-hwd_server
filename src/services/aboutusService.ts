@@ -9,4 +9,13 @@ export async function getStaffPictures(env: any) {
 	}
 }
 
-export default { getStaffPictures };
+export async function getWeddingStaffPictures(env: any) {
+	try {
+		const result = await aboutUsDao.getWeddingStaffPictures(env);
+		return result;
+	} catch (error) {
+		throw new Error('GET_BUSINESS_INFO_FAILED');
+	}
+}
+
+export default { getStaffPictures, getWeddingStaffPictures };

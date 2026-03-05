@@ -12,7 +12,24 @@ export async function getIntroduction(_req: Request, env: any) {
 			JSON.stringify({
 				message: error instanceof Error ? error.message : 'Internal Server Error',
 			}),
-			{ status: 500, headers: { 'Content-Type': 'application/json' } }
+			{ status: 500, headers: { 'Content-Type': 'application/json' } },
+		);
+	}
+}
+
+export async function getWeddingIntroduction(_req: Request, env: any) {
+	try {
+		const data = await mainService.getWeddingPictures(env);
+		return new Response(JSON.stringify(data), {
+			status: 200,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	} catch (error: any) {
+		return new Response(
+			JSON.stringify({
+				message: error instanceof Error ? error.message : 'Internal Server Error',
+			}),
+			{ status: 500, headers: { 'Content-Type': 'application/json' } },
 		);
 	}
 }
@@ -29,7 +46,24 @@ export async function getSnsImg(_req: Request, env: any) {
 			JSON.stringify({
 				message: error instanceof Error ? error.message : 'Internal Server Error',
 			}),
-			{ status: 500, headers: { 'Content-Type': 'application/json' } }
+			{ status: 500, headers: { 'Content-Type': 'application/json' } },
+		);
+	}
+}
+
+export async function getWeddingSnsImg(_req: Request, env: any) {
+	try {
+		const data = await mainService.getWeddingSnsImg(env);
+		return new Response(JSON.stringify(data), {
+			status: 200,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	} catch (error: any) {
+		return new Response(
+			JSON.stringify({
+				message: error instanceof Error ? error.message : 'Internal Server Error',
+			}),
+			{ status: 500, headers: { 'Content-Type': 'application/json' } },
 		);
 	}
 }

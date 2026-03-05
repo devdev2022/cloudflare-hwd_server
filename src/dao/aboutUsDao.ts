@@ -1,4 +1,4 @@
-export async function getStaffPictures(env: any) {
+export async function getWeddingStaffPictures(env: any) {
 	try {
 		const result = await env.DB.prepare(
 			`SELECT 
@@ -6,7 +6,7 @@ export async function getStaffPictures(env: any) {
          name,
          status,
          link
-       FROM Staff`
+       FROM wedding_staff`,
 		).all();
 
 		return result.results;
@@ -16,4 +16,22 @@ export async function getStaffPictures(env: any) {
 	}
 }
 
-export default { getStaffPictures };
+export async function getStaffPictures(env: any) {
+	try {
+		const result = await env.DB.prepare(
+			`SELECT 
+         id,
+         name,
+         status,
+         link
+       FROM Staff`,
+		).all();
+
+		return result.results;
+	} catch (err) {
+		console.error('DB_ERROR:', err);
+		throw new Error('DB_ERROR');
+	}
+}
+
+export default { getWeddingStaffPictures, getStaffPictures };

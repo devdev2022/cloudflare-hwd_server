@@ -1,7 +1,7 @@
-import { getBusinessInfo } from './controller/commonController';
-import { getStaffPictures } from './controller/aboutUsController';
-import { getIntroduction, getSnsImg } from './controller/mainController';
-import { getPictures } from './controller/worksController';
+import { getBusinessInfo, getWeddingBusinessInfo } from './controller/commonController';
+import { getStaffPictures, getWeddingStaffPictures } from './controller/aboutUsController';
+import { getIntroduction, getWeddingIntroduction, getSnsImg, getWeddingSnsImg } from './controller/mainController';
+import { getPictures, getWeddingPictures } from './controller/worksController';
 
 const allowedOrigins = ['https://hwayeondang.com', 'https://c78c7283.hwd-44u.pages.dev', 'https://hwd-44u.pages.dev'];
 
@@ -42,6 +42,10 @@ export default {
 			return withCors(getPictures);
 		}
 
+		if (url.pathname === '/wedding/works' && request.method === 'GET') {
+			return withCors(getWeddingPictures);
+		}
+
 		const { pathname } = url;
 
 		//common
@@ -49,13 +53,25 @@ export default {
 			return await withCors(getBusinessInfo);
 		}
 
+		if (pathname === '/wedding/common/businessInfo' && request.method === 'GET') {
+			return await withCors(getWeddingBusinessInfo);
+		}
+
 		//main
 		if (pathname === '/forrest/main/snsimg' && request.method === 'GET') {
 			return await withCors(getSnsImg);
 		}
 
+		if (pathname === '/wedding/main/snsimg' && request.method === 'GET') {
+			return await withCors(getWeddingSnsImg);
+		}
+
 		if (pathname === '/forrest/main/introduction' && request.method === 'GET') {
 			return await withCors(getIntroduction);
+		}
+
+		if (pathname === '/wedding/main/introduction' && request.method === 'GET') {
+			return await withCors(getWeddingIntroduction);
 		}
 
 		//aboutUs
@@ -63,9 +79,17 @@ export default {
 			return await withCors(getStaffPictures);
 		}
 
+		if (pathname === '/wedding/aboutus/pictures' && request.method === 'GET') {
+			return await withCors(getWeddingStaffPictures);
+		}
+
 		//works
 		if (pathname === '/forrest/works' && request.method === 'GET') {
 			return await withCors(getStaffPictures);
+		}
+
+		if (pathname === '/wedding/works' && request.method === 'GET') {
+			return await withCors(getWeddingStaffPictures);
 		}
 
 		return new Response(JSON.stringify({ message: 'Not Found' }), {

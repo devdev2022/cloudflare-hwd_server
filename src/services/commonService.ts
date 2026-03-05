@@ -9,4 +9,13 @@ export async function getBusinessInfo(env: any) {
 	}
 }
 
-export default { getBusinessInfo };
+export async function getWeddingBusinessInfo(env: any) {
+	try {
+		const result = await commonDao.getWeddingBusinessInfo(env);
+		return result;
+	} catch (error) {
+		throw new Error('GET_BUSINESS_INFO_FAILED');
+	}
+}
+
+export default { getBusinessInfo, getWeddingBusinessInfo };

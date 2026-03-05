@@ -7,7 +7,26 @@ const getIntroduction = async (env: any) => {
         thumbnail,
         cover_img,
         created_at
-      FROM Introduction`
+      FROM Introduction`,
+		).all();
+
+		return result.results;
+	} catch (err) {
+		console.error('DB_ERROR:', err);
+		throw new Error('DB_ERROR');
+	}
+};
+
+const getWeddingIntroduction = async (env: any) => {
+	try {
+		const result = await env.DB.prepare(
+			`SELECT 
+        id,
+        content,
+        thumbnail,
+        cover_img,
+        created_at
+      FROM wedding_introduction`,
 		).all();
 
 		return result.results;
@@ -24,7 +43,7 @@ const getSnsImg = async (env: any) => {
         id,
         link,
         created_at
-      FROM SnsImg`
+      FROM SnsImg`,
 		).all();
 
 		return result.results;
@@ -34,4 +53,21 @@ const getSnsImg = async (env: any) => {
 	}
 };
 
-export default { getIntroduction, getSnsImg };
+const getWeddingSnsImg = async (env: any) => {
+	try {
+		const result = await env.DB.prepare(
+			`SELECT 
+        id,
+        link,
+        created_at
+      FROM wedding_snsImg`,
+		).all();
+
+		return result.results;
+	} catch (err) {
+		console.error('DB_ERROR:', err);
+		throw new Error('DB_ERROR');
+	}
+};
+
+export default { getIntroduction, getWeddingIntroduction, getSnsImg, getWeddingSnsImg };

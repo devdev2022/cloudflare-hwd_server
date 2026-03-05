@@ -9,4 +9,13 @@ const getPictures = async (env: any, page: number, category: string, subMenu: nu
 	}
 };
 
-export default { getPictures };
+const getWeddingPictures = async (env: any, page: number, category: string, subMenu: number, limit: number) => {
+	try {
+		const result = await worksDao.getWeddingWorksImg(env, page, category, subMenu, limit);
+		return result;
+	} catch (error: any) {
+		throw error;
+	}
+};
+
+export default { getPictures, getWeddingPictures };
