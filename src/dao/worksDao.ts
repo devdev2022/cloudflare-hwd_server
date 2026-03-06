@@ -83,7 +83,7 @@ const getWeddingWorksImg = async (env: any, page: number, category: string, subM
                         FROM wedding_works
                         WHERE category = ?
                         ${subMenuCondition}
-                        ORDER BY created_at DESC
+                        ORDER BY created_date DESC
                         LIMIT ? OFFSET ?
                         `;
 
