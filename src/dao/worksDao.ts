@@ -79,7 +79,7 @@ const getWeddingWorksImg = async (env: any, page: number, category: string, subM
                             name,
                             link,
                             type_id,
-                            created_at
+                            created_date
                         FROM wedding_works
                         WHERE category = ?
                         ${subMenuCondition}

@@ -59,7 +59,7 @@ const getWeddingSnsImg = async (env: any) => {
 			`SELECT 
         id,
         link,
-        created_at
+        created_date
       FROM wedding_snsImg`,
 		).all();
 
