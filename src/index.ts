@@ -83,15 +83,6 @@ export default {
 			return await withCors(getWeddingStaffPictures);
 		}
 
-		//works
-		if (pathname === '/forrest/works' && request.method === 'GET') {
-			return await withCors(getStaffPictures);
-		}
-
-		if (pathname === '/wedding/works' && request.method === 'GET') {
-			return await withCors(getWeddingStaffPictures);
-		}
-
 		return new Response(JSON.stringify({ message: 'Not Found' }), {
 			status: 404,
 			headers: {
